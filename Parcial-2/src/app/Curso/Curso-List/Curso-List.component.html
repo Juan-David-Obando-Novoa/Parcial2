@@ -1,16 +1,22 @@
-<div class="row">
-  <div class="col-md-auto">
-    <table class="table table-hover" style="width: auto">
-      <thead class="table-dark">
-        <tr>
-          <th scope="col">Titulo</th>
-          <th scope="col">plataforma</th>
-          <th scope="col">Año de lanzamiento</th>
-          <th scope="col">duracion en horas</th>
-        </tr>
-      </thead>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col">
+      <h2 class="text-center mb-4">Cursos en línea</h2>
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Plataforma</th>
+            <th scope="col">Lanzamiento</th>
+            <th scope="col">Duración (h)</th>
+          </tr>
+        </thead>
       <tbody>
         <tr *ngFor="let curso of cursos" (click)="onSelected(curso)">
+          <th>
+            {{ curso.id }}
+          </th>
           <th>
             {{ curso.title }}
           </th>
@@ -25,8 +31,21 @@
           </td>
         </tr>
       </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="5">Los cursos 1, 3, 5 y 6 ofrecen certificado.</td>
+        </tr>
+      </tfoot>
     </table>
   </div>
+  <div class="col-md-auto">
+
+  </div>
+
+
+
+
+
   <div *ngIf="selected" class="col-md-auto p-0 ms-4">
     <app-Curso-detail [cursoDetail]="selectedCurso"></app-Curso-detail>
 
