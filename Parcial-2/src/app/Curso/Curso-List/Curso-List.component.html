@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col-md-auto">
+    <table class="table table-hover" style="width: auto">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">Titulo</th>
+          <th scope="col">plataforma</th>
+          <th scope="col">Año de lanzamiento</th>
+          <th scope="col">duracion en horas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let curso of cursos" (click)="onSelected(curso)">
+          <th>
+            {{ curso.title }}
+          </th>
+          <td>
+            {{ curso.platform }}
+          </td>
+          <td>
+            {{ curso.launch_year }}
+          </td>
+          <td>
+            {{ curso.duration_hours }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="selected" class="col-md-auto p-0 ms-4">
+    <app-Curso-detail [cursoDetail]="selectedCurso"></app-Curso-detail>
+
+  </div>
+</div>
